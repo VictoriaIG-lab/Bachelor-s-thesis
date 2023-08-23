@@ -1,0 +1,34 @@
+
+<head>
+    <link rel="stylesheet" href="../static/css/navbar.css">
+</head>
+
+<meta id="current_user" content="{{ current_user.id }}">
+
+<nav>
+    <div class="nav-wrapper teal darken-1">
+        <a href="/" class="brand-logo"><i class="large material-icons">all_inclusive</i>EloLearn</a>
+        <ul id="nav-mobile" class="right">
+            <li>
+            <a class="dropdown-trigger" href="#!" data-target="dropdown1"  data-beloworigin="true">
+              <i class="material-icons white-text notif">notifications</i>
+              <small id = "number_of_notifications" class="notification-badge">0</small>
+            </a>
+                <ul id='dropdown1' class='dropdown-content notification-text'>
+                    <div id="generated_notif">
+                    </div>
+                     <li><a onclick="dismiss_notification()">Dismiss all</a></li>
+                </ul>
+            </li>
+
+            <li><a href="/logout">Logout</a></li>
+        </ul>
+    </div>
+</nav>
+
+
+<script src="../static/js/navbar.js" type="text/javascript" charset="utf-8"></script>
+<script
+			  src="https://code.jquery.com/jquery-3.3.1.min.js"
+			  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+			  crossorigin="anonymous"></script>

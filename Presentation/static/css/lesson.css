@@ -1,0 +1,30 @@
+#lesson-title{
+    text-align: center;
+    color: #e3f2fd;
+}
+
+#explanation::-webkit-scrollbar {
+    width: 4px;
+}
+
+/* Track */
+#explanation::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+/* Handle */
+#explanation::-webkit-scrollbar-thumb {
+    background: #888;
+}
+
+/* Handle on hover */
+#explanation::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+.source_code{
+    background-color: #555555;
+    color: white;
+    text-align-all: center;
+    font-size: 14px;
+}

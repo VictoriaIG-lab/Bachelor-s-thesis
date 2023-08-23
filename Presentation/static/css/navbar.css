@@ -1,0 +1,31 @@
+    .notification-badge {
+      position:relative;
+      padding:5px 9px;
+      background-color: #fff;
+      color: #941e1e;
+      bottom: 15px;
+      left: 15px;
+      border-radius: 50%;
+    }
+
+    .notif{
+        position: absolute;
+    }
+
+    .notification-text li p{
+        font-size: 12px;
+        color:white;
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+    .notification-text li{
+        background-color: rgb(0, 84, 70);
+
+    }
+    .notification-text li:hover{
+        background-color: rgb(0, 128, 113);
+
+    }
+    .notification-text li a{
+        font-size: 11px;
+    }

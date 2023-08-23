@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
+    <link rel="stylesheet" href="../static/css/dashboard.css">
+
+    <link rel="stylesheet" href="../static/css/list_of_lessons.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
+
+</head>
+<body>
+
+{% include 'navbar.html' %}
+
+<div class="container">
+
+    <script>
+          document.addEventListener('DOMContentLoaded', function() {
+        var elems = document.querySelectorAll('.collapsible');
+        var instances = M.Collapsible.init(elems);
+      });
+    </script>
+
+    {% set current_lesson_id = chapter_lessons[1] %}
+
+    <ul class="collapsible" data-collapsible="accordion">
+        {% for chapter in chapter_lessons[0] if chapter|length > 1 %}
+    <li  class = "{{ "disabled" if chapter[1][0].id > current_lesson_id }}">
+      <div class="collapsible-header">{{ chapter[0].title }}</div>
+      <div class="collapsible-body collection collapsible-collection">
+          {% for lesson in chapter[1:] %}
+
+              <a href="/lesson/{{ lesson[0].id }}" class="collection-item  {{ "completed-item" if lesson[1] else "" }} {{ "disabled" if lesson[0].id > current_lesson_id  }}">{{ lesson[0].title }}</a>
+
+          {% endfor %}
+      </div>
+    </li>
+        {% endfor %}
+  </ul>
+
+</div>
+
+
+
+
+</body>
+</html>

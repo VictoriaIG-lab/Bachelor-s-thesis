@@ -1,0 +1,113 @@
+
+<html lang="en" xmlns:th="http://www.thymeleaf.org"><head>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
+    <link rel="stylesheet" href="../static/css/index.css" th:href="@{/css/index.css}">
+    <title>My app</title>
+</head>
+
+<body>
+
+    <div class="container white z-depth-2">
+        <ul class="tabs teal">
+            <li class="tab col s3"><a class="white-text active" href="#login">login</a></li>
+            <li class="tab col s3"><a class="white-text" href="#register">register</a></li>
+        </ul>
+        <div id="login" class="col s12">
+            <form action="/login" class="col s12" method="post">
+                {{ login_form.csrf_token }}
+                <div class="form-container">
+                    <h3 class="teal-text">Login</h3>
+                    <div class="row">
+                        <div class="input-field col s12">
+                            {{ login_form.email }}
+                            <label for="email">Email</label>
+                        </div>
+                    </div>
+
+                    {% for error in login_form.email.errors %}
+
+                    <span class="error-message">
+                            {{ error }}
+                    </span>
+
+                    {% endfor %}
+
+
+                    <div class="row">
+                        <div class="input-field col s12">
+                            {{ login_form.password }}
+                            <label for="password">Password</label>
+                        </div>
+                    </div>
+
+                    {% for error in login_form.password.errors %}
+                             <span class="error-message">
+                                    {{ error }}
+                            </span>
+                    {% endfor %}
+
+                    <br>
+                    <center>
+                        <button class="btn waves-effect waves-light teal" type="submit" name="action">Connect</button>
+                        <br>
+                    </center>
+                </div>
+            </form>
+        </div>
+        <div id="register"   class="col s12">
+            <form action="/register"  method="post" class="col s12">
+                {{ register_form.csrf_token}}
+                <div class="form-container">
+                    <h3 class="teal-text">Welcome</h3>
+                    <div class="row">
+                        <div class="input-field col s12">
+                            {{ register_form.email(class='validate') }}
+                            <label for="email">Email</label>
+                        </div>
+
+                        {% for error in register_form.email.errors %}
+                                 <span class="error-message">
+                                    {{ error }}
+                                </span>
+                        {% endfor %}
+
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12">
+                            {{ register_form.password(class='validate') }}
+                            <label for="password">Password</label>
+                        </div>
+                    </div>
+                        {% for error in register_form.password.errors %}
+                                 <span class="error-message">
+                                        {{ error }}
+                                </span>
+                        {% endfor %}
+                    <div class="row">
+                        <div class="input-field col s12">
+                            {{ register_form.confirm(class='validate') }}
+                            <label for="confirm">Password Confirmation</label>
+                        </div>
+                        {% for error in register_form.confirm.errors %}
+                                 <span class="error-message">
+                                    {{ error }}
+                                </span>
+                        {% endfor %}
+                    </div>
+                    <center>
+                        <button class="btn waves-effect waves-light teal" type="submit">Submit</button>
+                    </center>
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+      <script src='https://code.jquery.com/jquery-2.1.1.min.js'></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+    
+
+</body>
+</html>
+

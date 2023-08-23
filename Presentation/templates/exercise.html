@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
+    <link rel="stylesheet" href="../static/css/dashboard.css">
+
+    <link rel="stylesheet" href="../static/css/editor.css">
+    <link rel="stylesheet" href="../static/css/lesson.css">
+
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
+
+
+</head>
+<body>
+
+{% include 'navbar.html' %}
+
+  <div>
+      <div id = "lesson-title"><h3 >{{ exercise.title }}</h3></div>
+  </div>
+
+  <div style="margin-top: 57px;" class="row">
+
+
+    <div class="col s4 m4">
+      <div class="card blue-grey darken-1">
+        <div class="card-content white-text">
+          <span class="card-title">{{ exercise.title }}</span>
+
+                        <p>Chance to win: <span style="color: {{ '#F8A4A2' if difficulty <= 50 else '#4FF83C' }}">{{ difficulty }}%</span></p>
+            <br>
+            <div id ="explanation" style="max-height: 500px; overflow: auto;">
+
+                {{ exercise.content|safe }}
+            </div>
+
+
+
+        </div>
+      </div>
+    </div>
+<div class="col s4 m4">
+    {% include 'editor.html' %}
+</div>
+
+  </div>
+
+
+</body>
+</html>
